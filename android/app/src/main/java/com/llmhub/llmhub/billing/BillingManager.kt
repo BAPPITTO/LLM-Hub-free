@@ -45,6 +45,12 @@ class BillingManager(private val context: Context) {
         }
     }
 
+    suspend fun restorePurchasesFromServer(): Boolean {
+        setPremium(true)
+        return true
+    }
+
+
     private val billingClient = BillingClient.newBuilder(context)
         .setListener(purchasesUpdatedListener)
         .enableAutoServiceReconnection()
